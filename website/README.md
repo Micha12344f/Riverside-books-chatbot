@@ -1,67 +1,74 @@
 # Website Folder
 
-This folder is present as a scaffold, not as a finished part of the Riverside Books chatbot submission.
+This folder now contains a proper Docusaurus-style documentation site structure for the Riverside Books chatbot.
 
-The main deliverable for this project is the Python CLI chatbot in the root project and `src/`.
+It is not the chatbot runtime itself. Instead, it is the documentation and presentation layer for the project.
 
-## Current Status
+## What This Folder Is For
 
-Right now, the `website/` folder should be treated as:
+Use this folder when you want:
 
-- optional
-- incomplete
-- not part of the main run path
+- a browsable website version of the project documentation
+- a cleaner review surface than raw markdown files
+- a place to expand public-facing project docs later
 
-In other words:
-
-- the chatbot does not need this folder to work
-- the tests do not depend on this folder
-- the main README and Python code are the real submission
-
-## Why The Folder Exists
-
-This folder likely exists because the original scaffold left space for an optional front end or documentation site.
-
-That is a reasonable future direction, but it was not the best use of time for the core task. The main value of this submission is in:
-
-- matching judgment
-- safe fallback behavior
-- a clean CLI
-- clear testing
-- visible ranking logic
-
-## What Is Inside
-
-There are placeholders and scaffold-style files such as:
+## What Is In Here
 
 - `package.json`
+  - website dependencies and scripts
 - `docusaurus.config.js`
-- `babel.config.js`
+  - site configuration
 - `sidebars.js`
-- `docs/`
-- `src/`
+  - documentation navigation
+- `babel.config.js`
+  - Docusaurus Babel preset
+- `docs/docs/`
+  - markdown documentation pages used by the site
+- `src/pages/`
+  - homepage content
+- `src/css/`
+  - site styling
 - `static/`
+  - static assets if needed later
 
-At the moment, these files are not the focus of the project and may be empty or only partially configured.
+## What Is Not Part Of This Website
 
-## Recommendation
+The `Example` folder is intentionally not part of the arranged website structure for this pass.
 
-If you are reviewing this repository for the chatbot itself:
+You asked to ignore it, so the Docusaurus content is built around the real chatbot documentation instead.
 
-- read the root `README.md`
-- inspect `src/`
-- run `python main.py`
-- run `python -m src.live_test`
+## How To Run The Website
 
-If you later decide to add a front end, this folder is where that work should happen.
+From inside `website/`:
 
-## If This Folder Is Expanded Later
+```bash
+npm install
+npm start
+```
 
-A sensible future direction would be:
+That should run the Docusaurus dev server on port `3000`.
 
-1. create a tiny interface with one input box
-2. show the chatbot answer
-3. optionally show the rank table behind a debug toggle
-4. reuse the same matching logic from the Python backend or port the same behavior carefully
+## What The Site Documents
 
-Until then, treat `website/` as a placeholder rather than a core part of the chatbot.
+The site content mirrors the real project documentation:
+
+- project overview
+- matching approach
+- source-code guide
+- live test runner
+- notebook guide
+- testing guide
+- website-folder explanation
+- scaling plan
+
+## Relationship To The Main Project
+
+The website is documentation-first.
+
+The core chatbot still lives in:
+
+- `main.py`
+- `src/`
+- `tests/`
+
+So if you want to change chatbot behavior, edit the Python code first. The website is where you explain that behavior cleanly afterward.
