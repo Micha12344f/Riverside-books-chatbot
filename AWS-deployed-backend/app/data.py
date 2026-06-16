@@ -6,7 +6,7 @@ from pathlib import Path
 from .models import FAQ
 
 APP_ROOT = Path(__file__).resolve().parent
-DEFAULT_FAQS_FILE = APP_ROOT / "Data and requirements" / "faqs.json"
+DEFAULT_FAQS_FILE = APP_ROOT / "runtime_assets" / "faqs.json"
 
 
 def load_faqs(path: Path | None = None) -> list[FAQ]:
