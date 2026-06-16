@@ -4,11 +4,10 @@ on:
   push:
     branches:
       - main
-      - master
     paths:
       - ".github/workflows/deploy-backend-aws.yml"
-      - "backend/main.py"
-      - "backend/app/**"
+      - "AWS-deployed-backend/main.py"
+      - "AWS-deployed-backend/app/**"
   workflow_dispatch:
 
 permissions:
@@ -33,7 +32,7 @@ jobs:
           python-version: "3.11"
 
       - name: Build deployable backend bundle
-        working-directory: backend
+        working-directory: AWS-deployed-backend
         run: |
           python -m pip install --upgrade pip
           pip install -r "app/requirements.txt" -t package
@@ -46,7 +45,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: backend-release
-          path: backend/backend-release.zip
+          path: AWS-deployed-backend/backend-release.zip
 
   publish-bundle-to-aws:
     name: Publish Bundle To AWS
