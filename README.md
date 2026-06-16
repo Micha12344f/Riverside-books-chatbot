@@ -23,7 +23,7 @@ An AI-powered FAQ chatbot for a fictional independent bookshop, with a backend s
 
    ```powershell
    git clone https://github.com/Micha12344f/Riverside-chatbot.git
-   cd Riverside-chatbot/backend
+   cd Riverside-chatbot/AWS-deployed-backend
    pip install -r app/requirements.txt
    python main.py
    ```
@@ -32,7 +32,7 @@ An AI-powered FAQ chatbot for a fictional independent bookshop, with a backend s
 
    ```bash
    git clone https://github.com/Micha12344f/Riverside-chatbot.git
-   cd Riverside-chatbot/backend
+   cd Riverside-chatbot/AWS-deployed-backend
    pip3 install -r app/requirements.txt
    python3 main.py
    ```
@@ -41,7 +41,7 @@ An AI-powered FAQ chatbot for a fictional independent bookshop, with a backend s
 
    ```bash
    git clone https://github.com/Micha12344f/Riverside-chatbot.git
-   cd Riverside-chatbot/backend
+   cd Riverside-chatbot/AWS-deployed-backend
    pip3 install -r app/requirements.txt
    python3 main.py
    ```
@@ -65,11 +65,11 @@ An AI-powered FAQ chatbot for a fictional independent bookshop, with a backend s
 
 3. Frontend experience:
 
-   For more information, check [frontend/README.md](<C:/Users/sossi/OneDrive/Desktop/agent builder workspace/Riverside Chatbot solution/frontend/README.md>) for the frontend walkthrough and deployment notes.
+   For more information, check [Vercel-deployed-frontend/README.md](<C:/Users/sossi/OneDrive/Desktop/agent builder workspace/Riverside Chatbot solution/Vercel-deployed-frontend/README.md>) for the frontend walkthrough and deployment notes.
 
 4. Backend structure and deployment notes:
 
-   For more information, check [backend/README.md](<C:/Users/sossi/OneDrive/Desktop/agent builder workspace/Riverside Chatbot solution/backend/README.md>) for the backend entrypoints, AWS-facing structure, and runtime layout.
+   For more information, check [AWS-deployed-backend/README.md](<C:/Users/sossi/OneDrive/Desktop/agent builder workspace/Riverside Chatbot solution/AWS-deployed-backend/README.md>) for the backend entrypoints, AWS-facing structure, and runtime layout.
 
 ## Why This Approach Was Chosen
 
@@ -84,7 +84,7 @@ That gives a strong balance of quality and control:
 - lower operational cost than calling a model for every question
 - easier testing and clearer failure behavior
 
-For more information on the decision-making behind the project, check [backend/Project-explained/README.md](<C:/Users/sossi/OneDrive/Desktop/agent builder workspace/Riverside Chatbot solution/backend/Project-explained/README.md>).
+For more information on the decision-making behind the project, check [Project-explained/README.md](<C:/Users/sossi/OneDrive/Desktop/agent builder workspace/Riverside Chatbot solution/Project-explained/README.md>).
 
 ## How Our Matching Works
 
@@ -98,7 +98,7 @@ The matching flow is intentionally simple:
 4. Apply confidence rules so weak or ambiguous matches are rejected.
 5. Fall back to a lexical matcher if the embedding path is unavailable.
 
-For more information on the runtime code behind this flow, check [backend/app/README.md](<C:/Users/sossi/OneDrive/Desktop/agent builder workspace/Riverside Chatbot solution/backend/app/README.md>). For the broader project explanation, check [backend/Project-explained/README.md](<C:/Users/sossi/OneDrive/Desktop/agent builder workspace/Riverside Chatbot solution/backend/Project-explained/README.md>).
+For more information on the runtime code behind this flow, check [AWS-deployed-backend/app/README.md](<C:/Users/sossi/OneDrive/Desktop/agent builder workspace/Riverside Chatbot solution/AWS-deployed-backend/app/README.md>). For the broader project explanation, check [Project-explained/README.md](<C:/Users/sossi/OneDrive/Desktop/agent builder workspace/Riverside Chatbot solution/Project-explained/README.md>).
 
 ## Trade-Offs
 
@@ -112,7 +112,7 @@ For more information on the runtime code behind this flow, check [backend/app/RE
 
 For this project, semantic matching is the best fit because it handles paraphrased questions well without paying the cost and hallucination risk of an LLM-first design.
 
-For more information on the longer reasoning behind these trade-offs, check [backend/Project-explained/README.md](<C:/Users/sossi/OneDrive/Desktop/agent builder workspace/Riverside Chatbot solution/backend/Project-explained/README.md>).
+For more information on the longer reasoning behind these trade-offs, check [Project-explained/README.md](<C:/Users/sossi/OneDrive/Desktop/agent builder workspace/Riverside Chatbot solution/Project-explained/README.md>).
 
 ## What's Next For Scale
 
@@ -127,4 +127,4 @@ After that, the scaling path is:
 3. add deployment and environment separation across dev, preview, and production
 4. use LLM routing only where retrieval alone is not enough
 
-For more information on backend evolution, check [backend/README.md](<C:/Users/sossi/OneDrive/Desktop/agent builder workspace/Riverside Chatbot solution/backend/README.md>). For frontend delivery details, check [frontend/README.md](<C:/Users/sossi/OneDrive/Desktop/agent builder workspace/Riverside Chatbot solution/frontend/README.md>).
+For more information on backend evolution, check [AWS-deployed-backend/README.md](<C:/Users/sossi/OneDrive/Desktop/agent builder workspace/Riverside Chatbot solution/AWS-deployed-backend/README.md>). For frontend delivery details, check [Vercel-deployed-frontend/README.md](<C:/Users/sossi/OneDrive/Desktop/agent builder workspace/Riverside Chatbot solution/Vercel-deployed-frontend/README.md>).
