@@ -39,9 +39,7 @@ jobs:
         run: npm install --global vercel@latest
 
       - name: Pull Vercel production settings
-        working-directory: Vercel-deployed-frontend
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy frontend to Vercel
-        working-directory: Vercel-deployed-frontend
         run: vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
