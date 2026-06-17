@@ -115,13 +115,6 @@ For this project, semantic matching is the best fit because it handles paraphras
 
 ![Scale path](assets/demo-scale-path.png)
 
-The next step after the current demo architecture is a cleaner HTTP contract between frontend and backend, followed by better environment separation and observability.
-
-That path looks like this:
-
-1. keep the frontend proxy and backend URL separated by environment
-2. narrow CORS and deployment settings per environment
-3. add better evaluation and monitoring
-4. use LLM routing only where retrieval alone is not enough
+The next step after the current demo architecture is migrating from a static, hand-curated FAQ JSON file to a LangChain-powered retrieval pipeline backed by a vector store, which lets you scale from 20 fixed Q&A pairs to hundreds (or thousands) of unstructured support documents while preserving the same semantic-matching guarantees.
 
 For more detail, see [AWS-deployed-backend/README.md](AWS-deployed-backend/README.md), [Vercel-deployed-frontend/README.md](Vercel-deployed-frontend/README.md), and [Project-explained/README.md](Project-explained/README.md).
