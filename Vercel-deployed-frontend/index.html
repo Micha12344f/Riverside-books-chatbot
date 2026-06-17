@@ -16975,7 +16975,16 @@
             const sendBtn = document.getElementById('chatbot-send');
             const chatHistory = document.querySelector('.chat-history');
             
-            const API_URL = 'https://dqcxdduwwj.execute-api.us-east-1.amazonaws.com/chat';
+            function resolveApiUrl() {
+                const metaConfig = document.querySelector('meta[name="riverside-api-url"]');
+                const override = window.RIVERSIDE_API_URL
+                    || (metaConfig && metaConfig.content)
+                    || window.localStorage.getItem('RIVERSIDE_API_URL');
+
+                return override || '/api/chat';
+            }
+
+            const API_URL = resolveApiUrl();
             
             function addMessage(text, isUser) {
                 const msg = document.createElement('div');
