@@ -398,12 +398,43 @@
 
     <script id="riverside-image-fix">
         (function () {
+            function rewriteValue(value) {
+                if (!value) {
+                    return value;
+                }
+
+                return value
+                    .replace(/https:\/\/static\.Riversides\.com/gi, "https://static.waterstones.com")
+                    .replace(/https:\/\/cdn\.Riversides\.com/gi, "https://cdn.waterstones.com")
+                    .replace(/^\/images\//i, "https://www.waterstones.com/images/");
+            }
+
+            function normalizeMirroredUrls() {
+                var nodes = document.querySelectorAll("[src], [href], [data-src], [srcset], [data-srcset], [style]");
+
+                nodes.forEach(function (node) {
+                    ["src", "href", "data-src", "srcset", "data-srcset", "style"].forEach(function (attribute) {
+                        if (!node.hasAttribute(attribute)) {
+                            return;
+                        }
+
+                        var nextValue = rewriteValue(node.getAttribute(attribute));
+
+                        if (nextValue !== node.getAttribute(attribute)) {
+                            node.setAttribute(attribute, nextValue);
+                        }
+                    });
+                });
+            }
+
             function revealLazyImages() {
+                normalizeMirroredUrls();
+
                 var lazyImages = document.querySelectorAll("img[data-src], img[data-srcset], source[data-srcset]");
 
                 lazyImages.forEach(function (item) {
-                    var dataSrc = item.getAttribute("data-src");
-                    var dataSrcSet = item.getAttribute("data-srcset");
+                    var dataSrc = rewriteValue(item.getAttribute("data-src"));
+                    var dataSrcSet = rewriteValue(item.getAttribute("data-srcset"));
 
                     if (dataSrc) {
                         item.setAttribute("src", dataSrc);
@@ -429,19 +460,15 @@
     </script>
 
 
-    <link href="https://static.Riversides.com/11.41.0/css/bundle.css" media="all" rel="stylesheet" type="text/css">
-<link href="https://static.Riversides.com/11.41.0/css/print.css" media="print" rel="stylesheet" type="text/css">
+    <link href="https://static.waterstones.com/11.41.0/css/bundle.css" media="all" rel="stylesheet" type="text/css">
+<link href="https://static.waterstones.com/11.41.0/css/print.css" media="print" rel="stylesheet" type="text/css">
 
     <!--[if lt IE 9]>
-    <script src="https://static.Riversides.com/11.41.0/js/html5shiv.js"></script>
+    <script src="https://static.waterstones.com/11.41.0/js/html5shiv.js"></script>
     <![endif]-->
 
-    <script type="text/javascript" src="https://static.Riversides.com/11.41.0/js/bundle.js"></script>
-<script type="text/javascript" src="https://static.Riversides.com/11.41.0/js/ecommerce.js"></script>
-
-    <!--[if lte IE 9]>
-    <script src="https://static.Riversides.com/11.41.0/js/jquery.placeholder.js"></script>
-    <![endif]-->
+    <script type="text/javascript" src="https://static.waterstones.com/11.41.0/js/bundle.js"></script>
+<script type="text/javascript" src="https://static.waterstones.com/11.41.0/js/ecommerce.js"></script>
 
             <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async="" defer=""></script>
     
