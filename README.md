@@ -40,7 +40,6 @@ Start with the CLI/TUI if you want the fastest local run. The frontend and AWS b
 
 1. Clone the repo:
 
-   **Windows:**
 ```powershell
 git clone --branch main https://github.com/Micha12344f/Riverside-chatbot.git
 ```
